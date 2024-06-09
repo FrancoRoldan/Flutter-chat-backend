@@ -13,7 +13,7 @@ io.on('connection',  client => {
     //pongo online al usuario
     usuarioConectado(uid);
 
-    console.log('Cliente autenticado');
+    client.join(uid);
 
     client.on('disconnect', () => {
         usuarioConectado(uid);
