@@ -21,7 +21,7 @@ io.on('connection',  client => {
     });
 
     client.on('disconnect', () => {
-        usuarioConectado(uid);
+        usuarioDesconectado(uid);
     });
 
 
