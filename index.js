@@ -18,7 +18,12 @@ const server = require('http').createServer(app);
 module.exports.io = require('socket.io')(server);
 require('./sockets/socket');
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  next();
+});
 
 
 // Path público
