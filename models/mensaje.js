@@ -12,7 +12,7 @@ const MensajeSchema = Schema({
         ref:'Usuario',
         required: true
     },
-    mensake:{
+    mensaje:{
         type:   String,
         required:   true
     }
