@@ -5,7 +5,9 @@ const{ usuarioConectado,usuarioDesconectado, grabarMensaje} = require('../contro
 
 // Mensajes de Sockets
 io.on('connection',  client => {
-    const [valido, uid] = comprobarJWT(client.handshake.headers['x-token']);
+    const token = client.handshake.headers['x-token'] || client.handshake.query.token;
+    
+    const [valido, uid] = comprobarJWT(token);
 
     //valido que está autenticado
     if(!valido) {return client.disconnect();}
